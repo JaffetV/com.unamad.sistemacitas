@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- UNAMAD · sistema comercial de citas y reservas (roles Material 3) -->
+    <color name="md_theme_light_primary">#0F4C81</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_primaryContainer">#D4E8FA</color>
+    <color name="md_theme_light_onPrimaryContainer">#082D4D</color>
+    <color name="md_theme_light_secondary">#00A86B</color>
+    <color name="md_theme_light_onSecondary">#002719</color>
+    <color name="md_theme_light_secondaryContainer">#C8F3DE</color>
+    <color name="md_theme_light_onSecondaryContainer">#003822</color>
+    <color name="md_theme_light_tertiary">#E59866</color>
+    <color name="md_theme_light_onTertiary">#321A0A</color>
+    <color name="md_theme_light_tertiaryContainer">#FFE0C9</color>
+    <color name="md_theme_light_onTertiaryContainer">#5A2E12</color>
+    <color name="md_theme_light_error">#BA1A1A</color>
+    <color name="md_theme_light_onError">#FFFFFF</color>
+    <color name="md_theme_light_background">#F8F9FA</color>
+    <color name="md_theme_light_onBackground">#172434</color>
+    <color name="md_theme_light_surface">#FFFFFF</color>
+    <color name="md_theme_light_onSurface">#172434</color>
+    <color name="md_theme_light_surfaceVariant">#E8EEF3</color>
+    <color name="md_theme_light_onSurfaceVariant">#526273</color>
+    <color name="md_theme_light_outline">#CBD5DF</color>
+    <color name="md_theme_light_outlineVariant">#E0E7ED</color>
+    <color name="md_theme_light_surfaceContainerLowest">#FFFFFF</color>
+    <color name="md_theme_light_surfaceContainerLow">#F8F9FA</color>
+    <color name="md_theme_light_surfaceContainer">#F1F4F7</color>
+    <color name="md_theme_light_surfaceContainerHigh">#E9EEF2</color>
+    <color name="md_theme_light_surfaceContainerHighest">#E1E7EC</color>
+
+    <!-- Estados operativos -->
+    <color name="status_pending">#E59866</color>
+    <color name="status_pending_container">#FFF0E4</color>
+    <color name="status_pending_text">#783B12</color>
+    <color name="status_confirmed">#00A86B</color>
+    <color name="status_confirmed_container">#DDF6E9</color>
+    <color name="status_confirmed_text">#005B39</color>
+    <color name="status_cancelled">#BA1A1A</color>
+    <color name="status_cancelled_container">#FCE8E6</color>
+    <color name="status_cancelled_text">#7F1D1D</color>
+
+    <!-- Aliases de compatibilidad con layouts y código legado -->
+    <color name="teal_header">#0F4C81</color>
+    <color name="teal_button_primary">#007A4E</color>
+    <color name="teal_button_secondary">#55C995</color>
+    <color name="bg_screen">#F8F9FA</color>
+    <color name="white">#FFFFFF</color>
+    <color name="slate_900">#172434</color>
+    <color name="slate_600">#526273</color>
+    <color name="slate_border">#E0E7ED</color>
+    <color name="slate_bg_light">#EAF7F0</color>
+    <color name="red_light_bg">#FCE8E6</color>
+    <color name="red_dark_text">#7F1D1D</color>
+    <color name="estado_pendiente_bg">#FFF0E4</color>
+    <color name="estado_pendiente_text">#783B12</color>
+    <color name="estado_atendido_bg">#DDF6E9</color>
+    <color name="estado_atendido_text">#005B39</color>
+    <color name="estado_cancelado_bg">#FCE8E6</color>
+    <color name="estado_cancelado_text">#7F1D1D</color>
+</resources>

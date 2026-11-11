@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Citas y Reservas</string>
+    <string name="portal_brand_subtitle">Citas, horarios y reservas en un solo lugar</string>
+    <string name="portal_hero_title">Tu próxima cita, sin complicaciones</string>
+    <string name="portal_hero_description">Elige un negocio, revisa sus servicios y confirma un horario disponible. Tu reserva queda registrada en el sistema central.</string>
+    <string name="portal_search_hint">¿Qué servicio o negocio necesitas?</string>
+    <string name="portal_explore_action">Reservar una cita</string>
+    <string name="portal_customer_shortcut">Soy cliente</string>
+    <string name="portal_business_shortcut">Registrar mi negocio</string>
+    <string name="portal_agenda_shortcut">Mi agenda</string>
+    <string name="catalog_search_title">Elige dónde quieres reservar</string>
+    <string name="catalog_search_description">Selecciona un negocio, revisa sus servicios y después elige un turno disponible. Tu cita se valida en el servidor central.</string>
+    <string name="catalog_search_hint">Buscar por negocio, servicio o categoría</string>
+    <string name="catalog_load_more">Ver más negocios</string>
+</resources>
