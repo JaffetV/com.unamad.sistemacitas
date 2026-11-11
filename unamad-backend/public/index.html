@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Sistema de Citas UNAMAD</title>
+    <style>
+        :root {
+            --primary: #0F4C81;
+            --primary-dark: #082D4D;
+            --teal: #00A86B;
+            --teal-dark: #007A4E;
+            --bg: #F8F9FA;
+            --surface: #FFFFFF;
+            --text: #172434;
+            --muted: #526273;
+            --border: #E0E7ED;
+            --danger: #7F1D1D;
+            --danger-bg: #FEE2E2;
+            --warning: #B45309;
+            --warning-bg: #FEF3C7;
+            --success: #065F46;
+            --success-bg: #D1FAE5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 24px 32px;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(15, 76, 129, 0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+
+        .btn {
+            background-color: var(--teal);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .btn:hover {
+            background-color: var(--teal-dark);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-danger {
+            background-color: #DC2626;
+        }
+
+        .btn-danger:hover {
+            background-color: #B91C1C;
+        }
+
+        .btn-secondary {
+            background-color: var(--muted);
+        }
+
+        .btn-secondary:hover {
+            background-color: #3E4C59;
+        }
+
+        .container {
+            background: var(--surface);
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            padding: 24px;
+            overflow-x: auto;
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .table-header h2 {
+            font-size: 18px;
+            color: var(--primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th, td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background-color: #F1F5F9;
+            color: var(--muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover {
+            background-color: #F8FAFC;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-pendiente {
+            background-color: var(--warning-bg);
+            color: var(--warning);
+        }
+
+        .badge-atendido {
+            background-color: var(--success-bg);
+            color: var(--success);
+        }
+
+        .badge-cancelado {
+            background-color: var(--danger-bg);
+            color: var(--danger);
+        }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .actions button {
+            padding: 6px 12px;
+            font-size: 12px;
+            border-radius: 6px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>Universidad Nacional Amazónica de Madre de Dios</h1>
+            <p>Panel de Administración y Gestión Centralizada de Citas</p>
+        </div>
+        <button class="btn" onclick="cargarCitas()">🔄 Refrescar Datos</button>
+    </header>
+
+    <div class="container">
+        <div class="table-header">
+            <h2>Lista General de Citas Solicitadas</h2>
+            <span id="totalCitas" class="badge" style="background-color: #E0E7ED; color: var(--primary);">Total: 0</span>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Código</th>
+                    <th>Estudiante</th>
+                    <th>Escuela</th>
+                    <th>Fecha y Hora</th>
+                    <th>Motivo</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tablaCitasBody">
+                <!-- Datos dinámicos inyectados por JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const API_URL = '/api/citas';
+
+        async function cargarCitas() {
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) throw new Error('Error al conectar con la API');
+                const citas = await response.json();
+
+                const tbody = document.getElementById('tablaCitasBody');
+                tbody.innerHTML = '';
+
+                document.getElementById('totalCitas').textContent = `Total: ${citas.length}`;
+
+                if (citas.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="8" class="empty-state">No hay citas registradas en el sistema.</td></tr>`;
+                    return;
+                }
+
+                citas.forEach(cita => {
+                    const tr = document.createElement('tr');
+
+                    let badgeClass = 'badge-pendiente';
+                    const estadoText = cita.estado || 'Pendiente';
+                    if (estadoText.toLowerCase() === 'atendido') badgeClass = 'badge-atendido';
+                    if (estadoText.toLowerCase() === 'cancelado') badgeClass = 'badge-cancelado';
+
+                    tr.innerHTML = `
+                        <td><strong>#${cita.id}</strong></td>
+                        <td>${cita.codigo_estudiante || ''}</td>
+                        <td>${cita.nombre_estudiante || ''}</td>
+                        <td>${cita.escuela || ''}</td>
+                        <td>📅 ${cita.fecha || ''} <br>⏰ ${cita.hora || ''}</td>
+                        <td>${cita.motivo || ''}</td>
+                        <td><span class="badge ${badgeClass}">${estadoText}</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn" onclick="cambiarEstado(${cita.id}, 'Atendido')">✔ Atendido</button>
+                                <button class="btn btn-secondary" onclick="cambiarEstado(${cita.id}, 'Pendiente')">⏳ Pendiente</button>
+                                <button class="btn btn-danger" onclick="eliminarCita(${cita.id})">🗑 Eliminar</button>
+                            </div>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } catch (err) {
+                console.error('Error al cargar citas:', err);
+                alert('No se pudieron cargar las citas del servidor.');
+            }
+        }
+
+        async function cambiarEstado(id, nuevoEstado) {
+            try {
+                const response = await fetch(`${API_URL}/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ estado: nuevoEstado })
+                });
+                if (!response.ok) throw new Error('Error al actualizar el estado');
+                cargarCitas();
+            } catch (err) {
+                console.error('Error:', err);
+                alert('No se pudo actualizar el estado de la cita.');
+            }
+        }
+
+        async function eliminarCita(id) {
+            if (!confirm(`¿Estás seguro de eliminar la cita #${id}?`)) return;
+            try {
+                const response = await fetch(`${API_URL}/${id}`, {
+                    method: 'DELETE'
+                });
+                if (!response.ok) throw new Error('Error al eliminar la cita');
+                cargarCitas();
+            } catch (err) {
+                console.error('Error:', err);
+                alert('No se pudo eliminar la cita.');
+            }
+        }
+
+        // Cargar citas al iniciar la página
+        window.onload = () => {
+            cargarCitas();
+            // Refresco automático cada 30 segundos
+            setInterval(cargarCitas, 30000);
+        };
+    </script>
+</body>
+</html>

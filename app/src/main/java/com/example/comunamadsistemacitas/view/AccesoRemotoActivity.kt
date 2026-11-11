@@ -137,7 +137,7 @@ class AccesoRemotoActivity : UnamadBaseActivity() {
                                     .putString(ACTIVE_USER_NAME, event.user.optString("full_name"))
                                     .apply()
                                 if (event.source == AuthEvent.Source.CUSTOMER_REGISTRATION) registrationDialog?.dismiss()
-                                cargarNegociosDeCuenta()
+                                    cargarNegociosDeCuenta()
                             }
                             is AuthEvent.Failed -> showRemoteError(this@AccesoRemotoActivity, event.cause)
                         }

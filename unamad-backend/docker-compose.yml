@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: unamad_db
+    restart: always
+    environment:
+      POSTGRES_USER: citas_user
+      POSTGRES_PASSWORD: citas_password
+      POSTGRES_DB: db_citas
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    container_name: unamad_api
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: db
+      DB_USER: citas_user
+      DB_PASSWORD: citas_password
+      DB_NAME: db_citas
+      DB_PORT: 5432
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:

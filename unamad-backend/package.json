@@ -1,0 +1,22 @@
+{
+  "name": "unamad-backend",
+  "version": "1.0.0",
+  "description": "Backend API REST y Panel Web para Sistema de Citas UNAMAD",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "unamad",
+    "citas",
+    "express",
+    "postgresql"
+  ],
+  "author": "Arquitectura UNAMAD",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "pg": "^8.11.3"
+  }
+}

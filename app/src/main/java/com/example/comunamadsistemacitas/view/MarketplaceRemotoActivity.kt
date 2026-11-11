@@ -800,7 +800,7 @@ class MarketplaceRemotoActivity : UnamadBaseActivity() {
     }
 
     private fun cargarMisReservas() {
-        actualizarEncabezado("MIS CITAS", "Mis citas y reservas", "Consulta el estado de tus citas solicitadas y programadas.")
+            actualizarEncabezado("MIS CITAS", "Mis citas y reservas", "Consulta el estado de tus citas solicitadas y programadas.")
         seleccionarDestinoNavegacion("RESERVATIONS")
         currentSection = "RESERVATIONS"
         catalogFiltersContainer.visibility = View.GONE
@@ -821,7 +821,6 @@ class MarketplaceRemotoActivity : UnamadBaseActivity() {
 
     private fun renderizarMisReservas(items: JSONArray) {
         list.removeAllViews()
-        list.addView(rButton("‹  Volver a elegir un servicio") { cargarNegocios(reset = true) }.apply {
             backgroundTintList = android.content.res.ColorStateList.valueOf(UnamadPalette.navy)
         }, LinearLayout.LayoutParams(-1, rdp(44)).apply { bottomMargin = rdp(10) })
         val validReservations = buildList {
