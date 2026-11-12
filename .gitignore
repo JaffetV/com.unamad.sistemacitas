@@ -16,5 +16,8 @@ local.properties
 /backend/.env
 /backend/node_modules
 /backend/coverage
+/unamad-backend/.env
+/unamad-backend/node_modules
+/unamad-backend/coverage
 .kotlin/
 hs_err_pid*.log
